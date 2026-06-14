@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Brick Breaker - Select Level</title>
+	
+	<!-- Important for responsive scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Title -->
+        <div class="title">
+            <h1 class="brick">BRICK</h1>
+            <h1 class="breaker">BREAKER</h1>
+            <h1 class="game">GAME</h1>
+        </div>
+
+        <!-- Level Buttons -->
+        <div class="menu">
+
+            <button 
+            onmouseover="playHoverSound()" 
+            onclick="handleLevelClick('easy')">
+            ▶ Easy
+            </button>
+
+            <button 
+            onmouseover="playHoverSound()" 
+            onclick="handleLevelClick('medium')">
+            ▶ Medium
+            </button>
+
+            <button 
+            onmouseover="playHoverSound()" 
+            onclick="handleLevelClick('hard')">
+            ▶ Hard
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Canvas -->
+    <canvas id="gameCanvas" style="display:none;"></canvas>
+
+    <!-- Audio -->
+    <audio id="hoverSound" src="menuHover.mp3" preload="auto"></audio>
+    <audio id="clickSound" src="menuButton.mp3" preload="auto"></audio>
+	<audio id="brickSound" src="block.mp3" preload="auto"></audio>
+	<audio id="paddleSound" src="block.mp3" preload="auto"></audio>
+	<audio id="wallSound" src="block.mp3" preload="auto"></audio>
+	<audio id="gameOverSound" src="gameOver.mp3" preload="auto"></audio>
+	<audio id="gameWinSound" src="gameWin.mp3" preload="auto"></audio>
+
+    <!-- Scripts (IMPORTANT ORDER) -->
+    <script src="sound.js"></script>
+    <script src="game.js"></script>
+
+</body>
+</html>

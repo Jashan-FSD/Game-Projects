@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Over Menu</title>
+	
+	<!-- Important for responsive scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="title">
+            <h1 class="game">Game Over</h1>
+        </div>
+		
+		<!-- SCORE DISPLAY -->
+		<div class="score-box">
+			<h2 id="finalScore">Score: 0</h2>
+			<h3 id="highScore">🏆 High Score: 0</h3>
+		</div>
+
+        <!-- Menu -->
+        <div class="menu">
+
+            <button onmouseover="playHoverSound()" onclick="handlePlayClick()">
+                🔄 Retry
+            </button>
+
+            <button onmouseover="playHoverSound()" onclick="handleMainMenuClick()">
+                🏠 Main Menu
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Audio -->
+    <audio id="hoverSound" src="menuHover.mp3"></audio>
+    <audio id="clickSound" src="menuButton.mp3"></audio>
+	<audio id="gameOverSound" src="gameOver.mp3"></audio>
+
+    <!-- Scripts -->
+    <script src="sound.js"></script>
+	<script>
+		window.addEventListener("load", () => {
+			if (localStorage.getItem("gameResult") === "lose") {
+				playGameOverSound();
+			}
+		});
+	</script>
+    <script src="menu.js"></script>
+
+</body>
+</html>

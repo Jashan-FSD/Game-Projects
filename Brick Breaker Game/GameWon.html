@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Over Menu</title>
+	
+	<!-- Important for responsive scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="title">
+            <h1 class="congrats">Congratulations! You Won </h1>
+        </div>
+		
+		<!-- SCORE DISPLAY -->
+		<div class="score-box">
+			<h2 id="finalScore">Score: 0</h2>
+			<h3 id="highScore">🏆 High Score: 0</h3>
+		</div>
+
+        <!-- Menu -->
+        <div class="menu">
+
+            <button onmouseover="playHoverSound()" onclick="handlePlayClick()">
+                🔄 Retry
+            </button>
+
+            <button onmouseover="playHoverSound()" onclick="handleMainMenuClick()">
+                🏠 Main Menu
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Audio -->
+    <audio id="hoverSound" src="menuHover.mp3"></audio>
+    <audio id="clickSound" src="menuButton.mp3"></audio>
+	<audio id="gameWinSound" src="gameWin.mp3" preload="auto"></audio>
+
+    <!-- Scripts -->
+    <script src="sound.js"></script>
+	<script>
+		window.addEventListener("load", () => {
+			const result = localStorage.getItem("gameResult");
+
+			if (result === "win") {
+
+				const audio = document.getElementById("gameWinSound");
+				if (!audio) return;
+
+				// Try to play immediately
+				audio.currentTime = 0;
+				audio.volume = 0.4;
+
+				audio.play().catch(() => {
+					// Blocked → wait for user interaction
+					console.log("Autoplay blocked, waiting for click...");
+
+					document.body.addEventListener("click", () => {
+						audio.play().catch(() => {});
+					}, { once: true });
+				});
+			}
+		});
+	</script>
+    <script src="menu.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,165 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    margin: 0;
+    padding: 0;
+    background: #0f1a2b;
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh; /* better than height */
+    font-size: 12px;
+}
+
+/* Container */
+.container {
+    text-align: center;
+    border: 2px solid white;
+
+    padding: 4vw;
+    border-radius: 3vw;
+
+    width: min(40%, 900px);
+
+    aspect-ratio: 3 / 2;  /* height follows width */
+}
+
+/* Title Styling */
+.title h1 {
+    margin: 10px;
+    font-weight: bold;
+    text-shadow: 3px 3px 0 #000;
+}
+
+/* Responsive Fonts */
+.brick {
+    color: yellow;
+    font-size: clamp(32px, 6vw, 60px);
+}
+
+.breaker {
+    color: cyan;
+    font-size: clamp(36px, 6.5vw, 65px);
+}
+
+.game {
+    color: red;
+    font-size: clamp(32px, 6vw, 60px);
+}
+
+.congrats {
+    color: yellow;
+    font-size: clamp(20px, 6vw, 50px);
+}
+
+/* Score Box */
+.score-box {
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+}
+
+.score-box h2 {
+    font-size: clamp(20px, 4vw, 28px);
+    margin: 5px;
+    color: cyan;
+    text-shadow: 0 0 10px cyan;
+}
+
+.score-box h3 {
+    font-size: clamp(18px, 3.5vw, 22px);
+    margin: 5px;
+    color: yellow;
+    text-shadow: 0 0 8px yellow;
+}
+
+/* Canvas */
+#gameCanvas {
+    display: none;
+
+    width: 100%;          /* responsive */
+    height: auto;
+
+    background: #0a1424;
+    border: 3px solid cyan;
+    border-radius: 20px;
+
+    box-shadow: 
+        0 0 15px cyan,
+        inset 0 0 20px rgba(0,255,255,0.2);
+}
+
+/* Menu */
+.menu {
+    margin-top: 5vh; /* responsive spacing */
+}
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+/* Unlock Overlay */
+.unlock {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.9);
+    color: white;
+
+    font-size: clamp(18px, 5vw, 28px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 999;
+    cursor: pointer;
+}
+
+/* Buttons */
+.menu button {
+    display: block;
+
+    width: min(80%, 400px); /* responsive */
+    margin: 20px auto;
+    padding: 15px;
+
+    font-size: clamp(16px, 3vw, 24px);
+    font-weight: bold;
+
+    color: white;
+    border: none;
+    border-radius: 40px;
+
+    cursor: pointer;
+
+    background: linear-gradient(to bottom, #ff6a6a, #cc0000);
+
+    box-shadow: 
+        inset 0 4px 8px rgba(255,255,255,0.5),
+        0 5px 10px rgba(0,0,0,0.5);
+
+    transition: 0.2s;
+}
+
+/* Hover */
+.menu button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to bottom, #ff4d4d, #990000);
+}
+
+/* Click */
+.menu button:active {
+    transform: scale(0.95);
+}

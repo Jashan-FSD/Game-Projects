@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Important for responsive scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Brick Breaker Menu</title>	
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="title">
+            <h1 class="brick">BRICK</h1>
+            <h1 class="breaker">BREAKER</h1>
+            <h1 class="game">GAME</h1>
+        </div>
+
+        <!-- Sound Unlock -->
+        <div id="soundUnlock" class="unlock">
+            🔊 Click anywhere to enable sound
+        </div>
+
+        <!-- Menu -->
+        <div class="menu">
+
+            <button onmouseover="playHoverSound()" onclick="handlePlayClick()">
+                ▶ Play
+            </button>
+
+            <button onmouseover="playHoverSound()" onclick="handleHighScoreClick()">
+                🏆 HighScores
+            </button>
+
+            <button onmouseover="playHoverSound()" onclick="handleSettingsClick()">
+                ⚙ Settings
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Audio -->
+    <audio id="hoverSound" src="menuHover.mp3"></audio>
+    <audio id="clickSound" src="menuButton.mp3"></audio>
+
+    <!-- Scripts -->
+    <script src="sound.js"></script>
+    <script src="menu.js"></script>
+
+</body>
+</html>
